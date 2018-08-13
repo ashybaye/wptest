@@ -23,18 +23,18 @@ var gulp = require('gulp'),
  
 // CSS via Sass and Autoprefixer
 gulp.task('css', function() {
-    return gulp.src(scss + '{style.scss,rtl.scss}')
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-        outputStyle: 'expanded',
-        indentType: 'tab',
-        indentWidth: '1'
-    }).on('error', sass.logError))
-    .pipe(postcss([
-        autoprefixer('last 2 versions', '&gt; 1%')
-    ]))
-    .pipe(sourcemaps.write(scss + 'maps'))
-    .pipe(gulp.dest(root));
+  return gulp.src(scss + '{style.scss,rtl.scss}')
+  .pipe(sourcemaps.init())
+  .pipe(sass({
+      outputStyle: 'expanded',
+      indentType: 'tab',
+      indentWidth: '1'
+  }).on('error', sass.logError))
+  .pipe(postcss([
+      autoprefixer('last 2 versions', '&gt; 1%')
+  ]))
+  .pipe(sourcemaps.write(scss + 'maps'))
+  .pipe(gulp.dest(root));
 });
  
 // JavaScript
@@ -51,7 +51,7 @@ gulp.task('javascript', function() {
 gulp.task('watch', function() {
     browserSync.init({
         open: 'external',
-        proxy: 'http://localhost:8888/newwp/',
+        proxy: 'http://localhost:8888/wordpress/wptest/',
         port: 8080
     });
     gulp.watch([root + '**/*.css', root + '**/*.scss' ], ['css']);
