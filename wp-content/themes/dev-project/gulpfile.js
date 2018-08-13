@@ -31,7 +31,7 @@ gulp.task('css', function() {
       indentWidth: '1'
   }).on('error', sass.logError))
   .pipe(postcss([
-      autoprefixer('last 2 versions', '&gt; 1%')
+      autoprefixer('last 2 versions', '> 5%')
   ]))
   .pipe(sourcemaps.write(scss + 'maps'))
   .pipe(gulp.dest(root));
